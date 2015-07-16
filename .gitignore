@@ -6,18 +6,18 @@
 *.pem
 *.der
 
-*/bower_components
-*/node_modules
-*/lib
-*/sources
-*/public
+bower_components
+node_modules/
+lib
+sources
+public
+.tmp
+tmp
 
 #library source
 *.zip
 
 #client_secret
-default/application/client_secret.json
+application/client_secret.json
 
-#recipient txt
-tasks/*.csv
-tasks/debug
+
