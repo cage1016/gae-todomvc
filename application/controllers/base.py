@@ -55,6 +55,9 @@ class BaseRequestHandler(webapp2.RequestHandler):
 
     j = jinja2.get_jinja2(app=self.app)
     j.environment.filters['date'] = jinja2_date_filter
+    # fix Angular template, jinja template conflict
+    j.environment.variable_start_string = '{{ '
+    j.environment.variable_end_string == ' }}'
     return j
 
   @webapp2.cached_property
@@ -68,7 +71,6 @@ class BaseRequestHandler(webapp2.RequestHandler):
     if template_name != 'index.html':
       state = os.path.splitext(template_name)[0]
     template_vars['state'] = state
-
 
     if type(self.request.route_args) == dict:
       if self.request.route_args['exception']:
