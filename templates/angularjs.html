@@ -25,7 +25,7 @@
       <input class="toggle-all" id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
-        <li ng-repeat="todo in todos | filter:statusFilter track by $index"
+        <li ng-repeat="todo in todos | orderBy:'-created' | filter:statusFilter track by $index"
             ng-class="{completed: todo.completed, editing: todo == editedTodo}">
           <div class="view">
             <input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="toggleCompleted(todo)">
@@ -76,6 +76,7 @@
 <script src="/public/angularjs/base.js"></script>
 <script src="/public/angularjs/angular.js"></script>
 <script src="/public/angularjs/angular-route.js"></script>
+<script src="/public/angularjs/angular-resource.js"></script>
 <script src="/public/angularjs/app.js"></script>
 <script src="/public/angularjs/controllers/todoCtrl.js"></script>
 <script src="/public/angularjs/services/todoStorage.js"></script>

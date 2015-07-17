@@ -213,6 +213,7 @@ gulp.task('angularjs', function () {
     'bower_components/todomvc-app-css/index.css',
     'bower_components/angular/angular.js',
     'bower_components/angular-route/angular-route.js',
+    'bower_components/angular-resource/angular-resource.js',
     'assets/scripts/angularjs/**/*'
   ], {
     dot: true
