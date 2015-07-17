@@ -1,4 +1,7 @@
+import os
 import webapp2
+import json
+
 from application.controllers.base import BaseRequestHandler
 
 # from settings import decorator
@@ -17,8 +20,37 @@ class MainHandler(BaseRequestHandler):
     self.render('index.html')
 
 
+class AngularJSHandler(BaseRequestHandler):
+  def get(self):
+    self.render('angularjs.html')
+
+
+class ReactJSHandler(BaseRequestHandler):
+  def get(self):
+    self.render('reactjs.html')
+
+
+class VueJSHandler(BaseRequestHandler):
+  def get(self):
+    self.render('vuejs.html')
+
+
+class LearnJSONHandler(webapp2.RequestHandler):
+  def get(self):
+
+    name = os.path.join(os.path.dirname(__file__), 'learn.json')
+    with open(name, 'r') as file:
+      content = file.read()
+
+    self.response.headers['Content-Type'] = 'application/json'
+    self.response.out.write(content)
+
 routes = [
-  ('/', MainHandler)
+  ('/', MainHandler),
+  ('/angularjs', AngularJSHandler),
+  ('/reactjs', ReactJSHandler),
+  ('/vuejs', VueJSHandler),
+  ('/learn.json', LearnJSONHandler)
 ]
 
 router = webapp2.WSGIApplication(routes, config=app_config, debug=True)

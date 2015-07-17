@@ -1,0 +1,24 @@
+{
+  "name": "mitac-gae-to",
+  "version": "0.0.0",
+  "authors": [
+    "Cage <cage@mitac.com.tw>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "todomvc-common": "~1.0.2",
+    "todomvc-app-css": "~2.0.1",
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "react": "~0.13.3",
+    "director": "~1.2.8",
+    "vue": "^0.11.5",
+  }
+}

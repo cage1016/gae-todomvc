@@ -110,6 +110,7 @@ gulp.task('styles', function () {
     .pipe($.size({title: 'styles'}));
 });
 
+
 // Scan your HTML for assets & optimize them
 gulp.task('html', function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
@@ -183,7 +184,7 @@ gulp.task('serve:public', ['default'], function () {
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'scripts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'scripts', 'copy', 'todo'], cb);
 });
 
 // Run PageSpeed Insights
@@ -199,3 +200,51 @@ gulp.task('pagespeed', function (cb) {
 
 // Load custom tasks from the `tasks` directory
 // try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
+
+
+gulp.task('todo', ['angularjs', 'reactjs', 'vuejs'], function () {
+
+});
+
+gulp.task('angularjs', function () {
+  return gulp.src([
+    'bower_components/todomvc-common/base.css',
+    'bower_components/todomvc-common/base.js',
+    'bower_components/todomvc-app-css/index.css',
+    'bower_components/angular/angular.js',
+    'bower_components/angular-route/angular-route.js',
+    'assets/scripts/angularjs/**/*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('public/angularjs'))
+    .pipe($.size({title: 'copy-angularjs'}));
+});
+
+gulp.task('reactjs', function () {
+  return gulp.src([
+    'bower_components/todomvc-common/base.css',
+    'bower_components/todomvc-app-css/index.css',
+    'bower_components/todomvc-common/base.js',
+    'bower_components/react/react-with-addons.js',
+    'bower_components/react/JSXTransformer.js',
+    'bower_components/director/build/director.js',
+    'assets/scripts/reactjs/**/*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('public/reactjs'))
+    .pipe($.size({title: 'copy-reactjs'}));
+});
+
+gulp.task('vuejs', function () {
+  return gulp.src([
+    'bower_components/todomvc-common/base.css',
+    'bower_components/todomvc-app-css/index.css',
+    'bower_components/todomvc-common/base.js',
+    'bower_components/director/build/director.js',
+    'bower_components/vue/dist/vue.js',
+    'assets/scripts/vuejs/**/*'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('public/vuejs'))
+    .pipe($.size({title: 'copy-vuejs'}));
+});
