@@ -1,6 +1,8 @@
 import os
 import webapp2
 import json
+import endpoints
+from application.apis.todo_api import TodoV1
 
 from application.controllers.base import BaseRequestHandler
 
@@ -54,3 +56,6 @@ routes = [
 ]
 
 router = webapp2.WSGIApplication(routes, config=app_config, debug=True)
+
+API = endpoints.api_server([TodoV1], restricted=False)
+

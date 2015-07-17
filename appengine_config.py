@@ -10,3 +10,4 @@ from google.appengine.ext import vendor
 # sure that they are importable by the application.
 vendor.add('application')
 vendor.add('lib')
+vendor.add('endpoints_proto_datastore')
