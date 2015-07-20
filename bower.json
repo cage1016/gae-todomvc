@@ -19,7 +19,8 @@
     "angular-route": "~1.4.3",
     "react": "~0.13.3",
     "director": "~1.2.8",
-    "vue": "^0.11.5",
-    "angular-resource": "~1.4.3"
+    "angular-resource": "~1.4.3",
+    "vue": "~0.12.7",
+    "vue-resource": "git@github.com:vuejs/vue-resource.git"
   }
 }

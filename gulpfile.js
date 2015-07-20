@@ -243,6 +243,7 @@ gulp.task('vuejs', function () {
     'bower_components/todomvc-common/base.js',
     'bower_components/director/build/director.js',
     'bower_components/vue/dist/vue.js',
+    'bower_components/vue-resource/dist/vue-resource.js',
     'assets/scripts/vuejs/**/*'
   ], {
     dot: true
