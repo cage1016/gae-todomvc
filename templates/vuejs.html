@@ -11,18 +11,18 @@
 		<section class="todoapp">
 			<header class="header">
 				<h1>todos</h1>
-				<input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" v-model="newTodo" v-on="keyup:addTodo | key enter">
+				<input class="new-todo" autofocus autocomplete="off" placeholder="What needs to be done?" v-model="newTodo" v-on="keyup:addTodo | key 'enter'">
 			</header>
 			<section class="main" v-show="todos.length" v-cloak>
 				<input class="toggle-all" type="checkbox" v-model="allDone">
 				<ul class="todo-list">
-					<li class="todo" v-repeat="todos | filterTodos" v-class="completed: completed, editing: this == editedTodo">
+					<li class="todo" v-repeat="todos | orderBy 'created' true  | filterTodos" v-class="completed: completed, editing: this == editedTodo">
 						<div class="view">
-							<input class="toggle" type="checkbox" v-model="completed">
+							<input class="toggle" type="checkbox" v-model="completed" v-on="click: toggleCompleted(this)">
 							<label v-text="title" v-on="dblclick: editTodo(this)"></label>
 							<button class="destroy" v-on="click: removeTodo(this)"></button>
 						</div>
-						<input class="edit" type="text" v-model="title" v-todo-focus="this == editedTodo" v-on="blur: doneEdit(this), keyup: doneEdit(this) | key enter, keyup: cancelEdit(this) | key esc">
+						<input class="edit" type="text" v-model="title" v-todo-focus="this == editedTodo" v-on="blur: doneEdit(this), keyup: doneEdit(this) | key 'enter', keyup: cancelEdit(this) | key 'esc'">
 					</li>
 				</ul>
 			</section>
@@ -48,6 +48,7 @@
 		<script src="/public/vuejs/base.js"></script>
 		<script src="/public/vuejs/director.js"></script>
 		<script src="/public/vuejs/vue.js"></script>
+		<script src="/public/vuejs/vue-resource.js"></script>
 		<script src="/public/vuejs/store.js"></script>
 		<script src="/public/vuejs/app.js"></script>
 		<script src="/public/vuejs/routes.js"></script>

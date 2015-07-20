@@ -102,8 +102,6 @@ angular.module('todomvc')
     };
 
     $scope.clearCompletedTodos = function () {
-      var originalTodos = todos.slice(0);
-
       var completeTodos = [];
       var incompleteTodos = [];
       todos.forEach(function (todo) {
