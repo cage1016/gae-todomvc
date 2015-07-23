@@ -11,6 +11,15 @@
  * A singleton that operates as the central hub for application updates.
  */
 
+/** @jsx React.DOM */
+
+/*jslint node: true */
+/*jshint -W097*/
+/*jshint -W109*/
+/*jshint -W108*/
+
+'use strict';
+
 var TodoContants = require('../constants/TodoConstants');
 var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');

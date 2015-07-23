@@ -1,3 +1,12 @@
+/** @jsx React.DOM */
+
+/*jslint node: true */
+/*jshint -W097*/
+/*jshint -W109*/
+/*jshint -W108*/
+
+'use strict';
+
 var axios = require('axios');
 
 var TodoServerActionCreators = require('../actions/TodoServerActionCreators');
