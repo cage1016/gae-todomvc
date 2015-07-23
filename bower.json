@@ -20,7 +20,6 @@
     "react": "~0.13.3",
     "director": "~1.2.8",
     "angular-resource": "~1.4.3",
-    "vue": "~0.12.7",
-    "vue-resource": "git@github.com:vuejs/vue-resource.git"
+    "vue": "~0.12.7"
   }
 }
