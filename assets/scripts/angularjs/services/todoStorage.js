@@ -7,6 +7,9 @@
  * They both follow the same API, returning promises for all changes to the
  * model.
  */
+
+'use strict';
+
 angular.module('todomvc')
   .factory('Todo', function ($resource) {
     var Todo = $resource('/_ah/api/todo/v1/todos/:id', {id: '@id'}, {

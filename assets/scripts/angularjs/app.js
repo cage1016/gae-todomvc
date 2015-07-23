@@ -14,6 +14,7 @@ angular.module('todomvc', ['ngRoute', 'ngResource'])
       templateUrl: 'todomvc-index.html',
       resolve: {
         _todos: function (TodoLoaders) {
+          /*jshint newcap: false*/
           return TodoLoaders();
         }
       }
