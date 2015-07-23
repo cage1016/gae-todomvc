@@ -28,6 +28,14 @@ var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
 
+var browserify = require('browserify');
+var reactify = require('reactify');
+var jshintify = require('jshintify');
+var uglify = require('gulp-uglify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var react = require("gulp-react");
+
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
@@ -44,6 +52,7 @@ var AUTOPREFIXER_BROWSERS = [
 gulp.task('jshint', function () {
   return gulp.src('assets/scripts/**/*.js')
     .pipe(reload({stream: true, once: true}))
+    .pipe(react())
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
@@ -221,19 +230,32 @@ gulp.task('angularjs', function () {
     .pipe($.size({title: 'copy-angularjs'}));
 });
 
-gulp.task('reactjs', function () {
+
+gulp.task('reactjs-copy', function () {
   return gulp.src([
     'bower_components/todomvc-common/base.css',
     'bower_components/todomvc-app-css/index.css',
-    'bower_components/todomvc-common/base.js',
-    'bower_components/react/react-with-addons.js',
-    'bower_components/react/JSXTransformer.js',
-    'bower_components/director/build/director.js',
-    'assets/scripts/reactjs/**/*'
+    'bower_components/todomvc-common/base.js'
   ], {
     dot: true
   }).pipe(gulp.dest('public/reactjs'))
     .pipe($.size({title: 'copy-reactjs'}));
+});
+
+gulp.task('reactjs', ['reactjs-copy'], function () {
+  return browserify({
+    entries: ['assets/scripts/reactjs/app.js'],
+    extensions: ['.jsx', '.js'], // .jsx is for React.js templates
+    debug: true // used by React.js
+  })
+    .transform(reactify) // react.js browserify transform
+    .transform(jshintify) // jshint browserify transform
+    .bundle() // bundle modules
+    .pipe(source('bundle.min.js')) // filename to save as
+    .pipe(buffer()) // stream => buffer
+    //.pipe(uglify()) // minify js
+    .pipe(gulp.dest('public/reactjs')) // save to output directory
+    .pipe($.size({title: 'build-reactjs'}));
 });
 
 gulp.task('vuejs', function () {
