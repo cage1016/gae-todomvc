@@ -43,6 +43,9 @@ $ cd bower_components
 # clone vue-resource repo from github
 $ git clone https://github.com/vuejs/vue-resource
 
+# switch to vue-resource folder
+$ cd vue-resource
+
 # install vue-resource require packages
 $ npm install
 
