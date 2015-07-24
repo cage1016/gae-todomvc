@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>gae-todo</title>
+    <title>GAE todomvc</title>
 
     <!-- Add to homescreen -->
     <link rel="manifest" href="manifest.json">
@@ -39,7 +39,7 @@
     <header class="app-bar promote-layer">
       <div class="app-bar-container">
         <button class="menu"><img src="public/images/hamburger.svg" alt="Menu"></button>
-        <h1 class="logo">GAE <strong>todo</strong></h1>
+        <h1 class="logo">GAE <strong>todomvc</strong></h1>
         <section class="app-bar-actions">
         <!-- Put App Bar Buttons Here -->
         <!-- e.g <button><i class="icon icon-star"></i></button> -->
@@ -56,10 +56,32 @@
       </ul>
     </nav>
 
-    <main>
-      <h2 id="get-started">Shareba front-end framework sample</h2>
-      <p>Read how to <a href="https://developers.google.com/web/starter-kit">Get Started</a> or check out the <a href="styleguide.html">Style Guide</a>.</p>
-    </main>
+    <div class="editorial-header">
+      <div class="container">
+
+        <h2 class="subsection-title">GAE-todomvc samples</h2>
+
+        <p class="editorial-header__excerpt g-wide--pull-1">
+          <a href="http://todomvc.com/">todomvc</a> Angular, Reactjs, Vuejs example with python GAE (endpoints APIs)
+        </p>
+
+        <p class="g-wide--pull-1">Three samples will access same datastore via endpoints APIs</p>
+
+        <div class="toc">
+          <p class="toc__title">Reference</p>
+          <ol class="toc__list list-anchor" id="toc">
+            <li><a href="https://developers.google.com/web/tools/starter-kit/">Web Starter Kit — Web Fundamentals</a>
+            </li>
+            <li><a href="https://github.com/cage1016/gae-todomvc">cage1016/gae-todomvc</a></li>
+            <li><a href="https://cloud.google.com/appengine/docs/python/endpoints/create_api">Creating an Endpoints API
+              - Python — Google Cloud Platform</a></li>
+            <li><a href="https://github.com/GoogleCloudPlatform/endpoints-proto-datastore">GoogleCloudPlatform/endpoints-proto-datastore</a>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
 
     <!-- build:js scripts/main.min.js -->
     <script src="public/scripts/main.js"></script>
