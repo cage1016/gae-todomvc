@@ -4,6 +4,7 @@
 整個 GAE-todomvc 是選用 [TodoMVC](http://todomvc.com/) 中 `AngularJS`, `React.js` 及 `Vue.js` 為前端框架 + 後端為 `python GAE` endpoints APIs 存取相同的 datastore。
 
 ## Specs
+
 - [GAE-python](https://cloud.google.com/appengine/docs/python/)
 - [endpoints APIs](https://cloud.google.com/appengine/docs/python/endpoints/)
   - [GoogleCloudPlatform/endpoints-proto-datastore](https://github.com/GoogleCloudPlatform/endpoints-proto-datastore)
@@ -33,7 +34,7 @@ $ npm install
 $ bower install
 ```
 
-GAE todomvc 中 `Vue.js` 範例中使用到了 `vue-resource` library，因為 `vue-resource` 模組預設沒有 `update: {method: 'put'}` method，所以在執行 `gulp` 時，需自己稍作修改。
+GAE todomvc 中 `Vue.js` 範例中使用到了 `vue-resource` library，因為 `vue-resource` 模組預設沒有 `update: {method: 'put'}` method，所以在執行 `gulp` 時，需自己稍作修改。
 
 ```sh
 # switch to bower_components
